@@ -1,15 +1,15 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
+import TopHeader from './component/TopHeader'
 
 function App() {
-	const [count, setCount] = useState(0)
 
 	return (
-		<>
-			<h1>Hello SKR</h1>
-		</>
+		<div>
+			<TopHeader />
+			<h1>Tic Tac Toe</h1>
+		</div>
 	)
 }
 
