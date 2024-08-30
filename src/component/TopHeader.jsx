@@ -6,7 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 const TopHeader = ({selectGameType}) => {
 	const [game_types, setGameType] = useState([
-		"tictactoe1", 
+		"TheTicTacToe", 
 		"tictactoe2", 
 		"tictactoe3"
 	])
