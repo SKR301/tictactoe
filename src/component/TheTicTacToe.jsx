@@ -1,77 +1,76 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 
 const TheTicTacToe = () => {
-	const val_x = 'X'
-	const val_o = 'O'
-	const val_blank = ' '
+	const val_x = 'X';
+	const val_o = 'O';
+	const val_blank = ' ';
 	
 	const [cell_values, setCellValues] = useState([
 		[val_blank, val_blank, val_blank],
 		[val_blank, val_blank, val_blank],
 		[val_blank, val_blank, val_blank]
-	])
-	const [curr_move, setCurrMove] = useState(val_o)
+	]);
+	const [curr_move, setCurrMove] = useState(val_o);
 
 	const checkWinner = () => {
-		if(cell_values[0][0] == cell_values[0][1] == cell_values[0][2]){
-			return cell_values[0][0]
+		if(cell_values[0][0] == cell_values[0][1] && cell_values[0][0] == cell_values[0][2] && cell_values[0][0] != val_blank){
+			return cell_values[0][0];
 		}
-		if(cell_values[1][0] == cell_values[1][1] == cell_values[1][2]){
-			return cell_values[1][0]
+		if(cell_values[1][0] == cell_values[1][1] && cell_values[1][0] == cell_values[1][2] && cell_values[1][0] != val_blank){
+			return cell_values[1][0];
 		}
-		if(cell_values[2][0] == cell_values[2][1] == cell_values[2][2]){
-			return cell_values[2][0]
+		if(cell_values[2][0] == cell_values[2][1] && cell_values[2][0] == cell_values[2][2] && cell_values[2][0] != val_blank){
+			return cell_values[2][0];
 		}
 		
-		if(cell_values[0][0] == cell_values[1][0] == cell_values[2][0]){
-			return cell_values[0][0]
+		if(cell_values[0][0] == cell_values[1][0] && cell_values[0][0] == cell_values[2][0] && cell_values[0][0] != val_blank){
+			return cell_values[0][0];
 		}
-		if(cell_values[0][1] == cell_values[1][1] == cell_values[2][1]){
-			return cell_values[0][1]
+		if(cell_values[0][1] == cell_values[1][1] && cell_values[0][1] == cell_values[2][1] && cell_values[0][1] != val_blank){
+			return cell_values[0][1];
 		}
-		if(cell_values[0][2] == cell_values[1][2] == cell_values[2][2]){
-			return cell_values[0][2]
-		}
-
-		if(cell_values[0][0] == cell_values[1][1] == cell_values[2][2]){
-			return cell_values[1][1]
-		}
-		if(cell_values[2][0] == cell_values[1][1] == cell_values[0][2]){
-			return cell_values[1][1]
+		if(cell_values[0][2] == cell_values[1][2] && cell_values[0][2] == cell_values[2][2] && cell_values[0][2] != val_blank){
+			return cell_values[0][2];
 		}
 
-		return null
+		if(cell_values[0][0] == cell_values[1][1] && cell_values[0][0] == cell_values[2][2] && cell_values[0][0] != val_blank){
+			return cell_values[1][1];
+		}
+		if(cell_values[2][0] == cell_values[1][1] && cell_values[2][0] == cell_values[0][2] && cell_values[2][0] != val_blank){
+			return cell_values[1][1];
+		}
+
+		return null;
 	}
 
 	const handleCellClick = (e) => {
-		const id = e.target.id
-		const row = id.substr(3)[0]
-		const col = id.substr(3)[1]
+		const id = e.target.id;
+		const row = id.substr(3)[0];
+		const col = id.substr(3)[1];
 
 		//check curr state of cell
 		if(cell_values[row][col] != val_blank){
-			return
+			return;
 		}
 
 		//update state val however req
-		let new_cell_values = cell_values
-		new_cell_values[row][col] = curr_move
-		console.log(new_cell_values)
-		//TODO: setCellValues not found
-		setCellValues(new_cell_values)
-
+		let new_cell_values = cell_values;
+		new_cell_values[Number(row)][Number(col)] = curr_move;
+		setCellValues(new_cell_values);
+		
 		(curr_move == val_o)? setCurrMove(val_x): setCurrMove(val_o);
 	
 		//check if game ends and decl winner
-		winner = checkWinner()
+		const winner = checkWinner();
 		if(winner){
-			console.log('not null')
+			console.log('not null');
 		} else {
-			console.log('null')
+			console.log('null');
 		}
 	}
 
+			// TODO: add design
 	return (
 		<div>
 			<Container>
