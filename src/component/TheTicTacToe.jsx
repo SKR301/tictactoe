@@ -70,28 +70,37 @@ const TheTicTacToe = () => {
 		}
 	}
 
-			// TODO: add design
+	const container = {
+
+	}
+
+	const cell = {
+		padding: '10px',
+		fontSize: '75px',
+		padding: '20px'
+	}
+
 	return (
 		<div>
-			<Container>
+			<Container id='container'>
 				<Row id='row0' className=''>
-					<Col id='col00' onClick={handleCellClick}>|{cell_values[0][0]}|</Col>
-					<Col id='col01' onClick={handleCellClick}>|{cell_values[0][1]}|</Col>
-					<Col id='col02' onClick={handleCellClick}>|{cell_values[0][2]}|</Col>
+					<Col id='col00' className='text-center' style={cell} onClick={handleCellClick}>{cell_values[0][0]}</Col>
+					<Col id='col01' className='text-center border border-top-0 border-bottom-0' style={cell} onClick={handleCellClick}>{cell_values[0][1]}</Col>
+					<Col id='col02' className='text-center' style={cell} onClick={handleCellClick}>{cell_values[0][2]}</Col>
 				</Row>
 				<Row id='row1'>
-					<Col id='col10' onClick={handleCellClick}>|{cell_values[1][0]}|</Col>
-					<Col id='col11' onClick={handleCellClick}>|{cell_values[1][1]}|</Col>
-					<Col id='col12' onClick={handleCellClick}>|{cell_values[1][2]}|</Col>
+					<Col id='col10' className='text-center border-top border-bottom' style={cell} onClick={handleCellClick}>{cell_values[1][0]}</Col>
+					<Col id='col11' className='text-center border' style={cell} onClick={handleCellClick}>{cell_values[1][1]}</Col>
+					<Col id='col12' className='text-center border-top border-bottom' style={cell} onClick={handleCellClick}>{cell_values[1][2]}</Col>
 				</Row>
-				<Row id='row2'>
-					<Col id='col20' onClick={handleCellClick}>|{cell_values[2][0]}|</Col>
-					<Col id='col21' onClick={handleCellClick}>|{cell_values[2][1]}|</Col>
-					<Col id='col22' onClick={handleCellClick}>|{cell_values[2][2]}|</Col>
+				<Row id='row2'>	
+					<Col id='col20' className='text-center' style={cell} onClick={handleCellClick}>{cell_values[2][0]}</Col>
+					<Col id='col21' className='text-center border border-top-0 border-bottom-0' style={cell} onClick={handleCellClick}>{cell_values[2][1]}</Col>
+					<Col id='col22' className='text-center' style={cell} onClick={handleCellClick}>{cell_values[2][2]}</Col>
 				</Row>
 			</Container>
 		</div>
 	)
 }
 
-export default TheTicTacToe
+export default TheTicTacToe;
